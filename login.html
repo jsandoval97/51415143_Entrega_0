@@ -7,12 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/login.css" rel="stylesheet">
   <style>
     html, body{
       height: 100%;
@@ -38,15 +38,48 @@
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+  <div id="logreg-forms">
+    <!-- Esto de abajo era un <form class = "form-singin"></form> y lo cambie por un div -->
+    <div class="form-signin">
+        <img id= "login-img" class="rounded" src= img/login.png>
+        <div class="social-login">
+            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Ingresar con Facebook</span> </button>
+            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google"></i> Ingresar con Google</span> </button>
+        </div>
+        <p style="text-align:center"> Ingresa tu usuario y contraseña  </p>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Correo electrónico" required="" autofocus=""> 
+        <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required=""> 
+        <button class="btn btn-success btn-block" type="submit" onclick="validar();"><i class="fas fa-sign-in-alt"></i> Ingresar </button>
+        <a href="#" id="forgot_pswd">¿Olvidaste tu contraseña?</a>
+        <hr>
+        <!-- <p>Don't have an account!</p>  -->
+        <button class="btn btn-primary btn-block" type="button" id="btn-signup" ><i class="fas fa-user-plus"></i> Crear una cuenta </button>
+      </div>
 
+        <form action="/reset/password/" class="form-reset">
+            <input type="email" id="resetEmail" class="form-control" placeholder="Correo electrónico" required="" autofocus="">
+            <button class="btn btn-primary btn-block" type="submit"> Cambiar contraseña </button>
+            <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Volver</a>
+        </form>
+        
+        <form action="/signup/" class="form-signup">
+            <div class="social-login">
+                <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Registrarse con Facebook</span> </button>
+            </div>
+            <div class="social-login">
+                <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Registrarse con Google</span> </button>
+            </div>
+
+            <input type="text" id="user-name" class="form-control" placeholder="Nombre completo" required="" autofocus="">
+            <input type="email" id="user-email" class="form-control" placeholder="Correo electrónico" required autofocus="">
+            <input type="password" id="user-pass" class="form-control" placeholder="Contraseña" required autofocus="">
+            <input type="password" id="user-repeatpass" class="form-control" placeholder="Repita la contraseña" required autofocus="">
+
+            <button class="btn btn-primary btn-block" type="submit"><i class="fas fa-user-plus"></i> Registrarse </button>
+            <a href="#" id="cancel_signup"><i class="fas fa-angle-left"></i> Volver </a>
+        </form>
+        <br>
+  </div>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
