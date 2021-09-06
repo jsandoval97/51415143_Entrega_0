@@ -20,19 +20,26 @@ $(()=>{
 
 function validar (){
 
-    let email = document.getElementById('inputEmail');
-    let contraseña = document.getElementById('inputPassword');
-
+    let email = document.getElementById('email');
+    let contraseña = document.getElementById('contraseña');
+    
     if ((email.value === '') || (contraseña.value === '')){
         alert("email o contraseña en blanco")
     }
     else{
-        document.location.href="index.html"
+
+        location.href="index.html";
+        localStorage.setItem("usuario", JSON.stringify(document.getElementById("email")));
+
     }
+
 }
+
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function(e){
+
 
 });
