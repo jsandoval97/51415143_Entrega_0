@@ -41,7 +41,7 @@ var getJSONData = function(url){
 }
 
 let usuario = JSON.parse(localStorage.getItem("usuario"));
-    document.getElementById("usuario").innerHTML = usuario.nombre;
+    document.getElementById("perfil").innerHTML = usuario;
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los

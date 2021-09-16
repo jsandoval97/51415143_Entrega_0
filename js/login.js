@@ -29,7 +29,7 @@ function validar (){
     else{
 
         location.href="index.html";
-        localStorage.setItem("usuario", JSON.stringify(document.getElementById("email")));
+        localStorage.setItem("usuario", JSON.stringify(document.getElementById("email").value));
 
     }
 
