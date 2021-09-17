@@ -28,14 +28,56 @@ function showCommentsList(){
         let comment = commentsArray[i];
 
         htmlContentToAppend += `
-                <div>
-                    <p> + comment.description + </p>
+            <div class="card p-3">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="user d-flex flex-row align-items-center"> <img src="img/blank_profile.png" width="30" class="user-img rounded-circle mr-2"> <span><small class="font-weight-bold text-primary">` + comment.user + `</small></div> <small>`+ comment.dateTime +`</small>
                 </div>
-            `
+                <div class="action d-flex justify-content-between mt-2 align-items-center">
+                    <div class="user d-flex flex-row align-items-center">  <small class="font-weight-bold">`+ comment.description + `</small></span>  </div>
+                    <div class="icons align-items-center"> <i class="fa fa-star text-warning"></i> <i class="fa fa-check-circle-o check-icon"></i> ` + comment.score + ` </div>
+                </div>
+            </div>
+        `
         }
 
-        document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
+        document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
+
+function califico(num){
+
+    let estrellas = "";
+
+    for (let i=1; i<5; i++){
+
+        if (i<=num){
+            estrellas += '<i class="fas fa-star"></i>';
+
+        }else{
+            estrellas += '<i class="fas fa-star "></i>';
+        }
+    }
+
+    return estrellas;
+}
+
+function addComment(){
+
+    let comentario = {};
+
+    comentario.user = JSON.parse(localStorage.getItem("usuario"));
+    comentario.description = document.getElementById("comentarioUsuario").value;
+    comentario.score = parseInt(document.getElementById("calificacion").value);
+    comentario.dateTime = new Date ();
+
+    commentsArray.push(comentario);
+
+    showCommentsList();
+
+    document.getElementById("comentarioUsuario").value="";
+    document.getElementById("calificacion").value="";
+
+}
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
@@ -67,7 +109,11 @@ document.addEventListener("DOMContentLoaded", function(e){
 
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
+
+            commentsArray = resultObj.data;
+
             showCommentsList();
         }
     });
+
 });

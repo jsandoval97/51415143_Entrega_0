@@ -23,7 +23,8 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="perfil"> </a>
+      <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="perfil"></a>
+      <a class="py-2 d-none d-md-inline-block" href="login.html" id="cerrar" onclick="localStorage.clear();">Cerrar Sesión</a>
     </div>
   </nav>
   <main role="main">
@@ -71,7 +72,17 @@
 
         <dt>Comentarios</dt>
         <dd>
-        <div class="cat-list-container">
+        <div class= "row">
+          <div class= "container mt-5" id="product-list-container"></div>
+        </div>
+        </dd>
+
+        <dt>Haz un comentario</dt>
+        <dd>
+        <div>
+          <label><input type="text" placeholder= "califica del 1 al 5" id="calificacion"></label><br>
+          <label><textarea row="20" cols="50" placeholder="Escribe aquí tu comentario" id="comentarioUsuario" ></textarea></label> <br>
+          <button type="submit" id="agregar" onclick="addComment();"> Enviar </button>
         </div>
         </dd>
 
