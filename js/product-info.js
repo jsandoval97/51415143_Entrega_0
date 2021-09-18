@@ -43,31 +43,32 @@ function showCommentsList(){
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
 
-function califico(num){
+// function califico(num){
 
-    let estrellas = "";
+//     let estrellas = "";
 
-    for (let i=1; i<5; i++){
+//     for (let i=1; i<5; i++){
 
-        if (i<=num){
-            estrellas += '<i class="fas fa-star"></i>';
+//         if (i<=num){
+//             estrellas += '<i class="fas fa-star"></i>';
 
-        }else{
-            estrellas += '<i class="fas fa-star "></i>';
-        }
-    }
+//         }else{
+//             estrellas += '<i class="fas fa-star "></i>';
+//         }
+//     }
 
-    return estrellas;
-}
+//     return estrellas;
+// }
 
 function addComment(){
 
     let comentario = {};
+    let fecha = new Date ();
 
     comentario.user = JSON.parse(localStorage.getItem("usuario"));
     comentario.description = document.getElementById("comentarioUsuario").value;
     comentario.score = parseInt(document.getElementById("calificacion").value);
-    comentario.dateTime = new Date ();
+    comentario.dateTime = fecha.getFullYear() + "-" + fecha.getMonth() + "-" + fecha.getDate() + " " + fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
 
     commentsArray.push(comentario);
 
@@ -92,14 +93,14 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productCostHTML = document.getElementById("productCost");
             let productSoldHTML = document.getElementById("productSold");
             let productCategoryHTML = document.getElementById("productCategory");
-            let productRelatedHTML = document.getElementById("productRelated");
+            // let productRelatedHTML = document.getElementById("productRelated");
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description; 
             productCostHTML.innerHTML = product.currency + " " + product.cost;
             productSoldHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
-            productRelatedHTML.innerHTML = product.relatedProducts;
+            // productRelatedHTML.innerHTML = product.relatedProducts;
 
 
             //Muestro las imagenes en forma de galería
