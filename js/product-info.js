@@ -1,6 +1,7 @@
 var product = {};
 var commentsArray = [];
 
+
 function showImagesGallery(array){
 
     let htmlContentToAppend = "";
@@ -10,11 +11,12 @@ function showImagesGallery(array){
 
         htmlContentToAppend += `
         <div class="col-lg-3 col-md-4 col-6">
-            <div class="d-block mb-4 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
+             <div class="d-block mb-4 h-100">
+                 <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
+             </div>
         </div>
         `
+        
 
         document.getElementById("productImagesGallery").innerHTML = htmlContentToAppend;
     }
@@ -42,6 +44,7 @@ function showCommentsList(){
 
         document.getElementById("product-list-container").innerHTML = htmlContentToAppend;
     }
+    
 
 // function califico(num){
 
@@ -93,18 +96,17 @@ document.addEventListener("DOMContentLoaded", function(e){
             let productCostHTML = document.getElementById("productCost");
             let productSoldHTML = document.getElementById("productSold");
             let productCategoryHTML = document.getElementById("productCategory");
-            // let productRelatedHTML = document.getElementById("productRelated");
         
             productNameHTML.innerHTML = product.name;
             productDescriptionHTML.innerHTML = product.description; 
             productCostHTML.innerHTML = product.currency + " " + product.cost;
             productSoldHTML.innerHTML = product.soldCount;
             productCategoryHTML.innerHTML = product.category;
-            // productRelatedHTML.innerHTML = product.relatedProducts;
 
 
             //Muestro las imagenes en forma de galería
             showImagesGallery(product.images);
+            
         }
     });
 
@@ -114,6 +116,41 @@ document.addEventListener("DOMContentLoaded", function(e){
             commentsArray = resultObj.data;
 
             showCommentsList();
+        }
+    });
+
+    getJSONData(PRODUCTS_URL).then(function(resultObj){
+        if (resultObj.status === "ok"){
+            var productos = resultObj.data;
+            var productosRel = product.relatedProducts;
+            let prodRelAppend = "";
+            let prodRel = document.getElementById("relatedProducts");
+
+            productosRel.forEach(function (e) {
+                let rProduct = productos[e];
+
+            prodRelAppend += `
+            <div class="container-fluid">
+                <div class="px-lg-5">
+                    <div class="row">
+                    <!-- Gallery item -->
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+                            <div class="bg-white rounded shadow-sm"><img src="` + rProduct.imgSrc + `" alt="" class="img-fluid card-img-top">
+                                <div class="p-4">
+                                    <h5> <a href="products.html" class="text-dark">`+ rProduct.name +`</a></h5>
+                                    <p class="small text-muted mb-0">` + rProduct.currency + " " + rProduct.cost +  `</p>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- End -->
+                    </div>
+                </div>
+            </div>
+            `
+            });
+
+            prodRel.innerHTML += prodRelAppend;
+
         }
     });
 

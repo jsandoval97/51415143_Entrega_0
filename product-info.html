@@ -22,9 +22,15 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" href="my-profile.html" id="perfil"></a>
-      <a class="py-2 d-none d-md-inline-block" href="login.html" id="cerrar" onclick="localStorage.clear();">Cerrar Sesión</a>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="py-2 d-none d-md-inline-block" href="cart.html"> Mi carrito</a><br>
+          <a class="py-2 d-none d-md-inline-block" href="my-profile.html"> Mi perfil</a>
+          <a class="py-2 d-none d-md-inline-block" href="login.html" id="cerrar" onclick="localStorage.clear();"> Cerrar Sesión</a>
+        </div>
+      </div>
     </div>
   </nav>
   <main role="main">
@@ -65,10 +71,6 @@
           <p id="productCategory"></p>
         </dd>
 
-        <!-- <dt>Productos relacionados</dt>
-        <dd>
-          <p id="productRelated"></p>
-        </dd> -->
 
         <dt>Comentarios</dt>
         <dd>
@@ -85,6 +87,11 @@
           <button type="submit" id="agregar" onclick="addComment();"> Enviar </button>
         </div>
         </dd>
+
+        <dt>Productos relacionados</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="relatedProducts">
+        </dd> 
 
       </dl>
       <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Ver productos</a>
