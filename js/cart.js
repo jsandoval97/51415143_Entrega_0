@@ -7,10 +7,12 @@ function showCart(){
     for(let i = 0; i < carritoArray.articles.length; i++){
         let carrito = carritoArray.articles[i];
 
+
+
         htmlContentToAppend += `
 				 					<div class="row">
 					 					<div class="col-md-3">
-					 						<img class="img-fluid mx-auto d-block image" src="` + carrito.src + `">
+					 						<img class="img-fluid mx-auto d-block image" src="` + carrito.src + `" alt="Sample">
 					 					</div>
 					 					<div class="col-md-8">
 					 						<div class="info">
@@ -19,7 +21,7 @@ function showCart(){
 							 							<div class="product-name">
 								 							<a href="#">` + carrito.name + `</a>
 								 							<div class="product-info">
-									 							<div>Costo Unitario: <span class="value">` + carrito.currency + `</span><span class="value">`+ " " + carrito.unitCost + `</span></div>
+									 							<div>Costo Unitario: <span class="value" id="moneda">` + carrito.currency + `</span><span class="value" id="precio">`+ " " + carrito.unitCost + `</span></div>
 									 						</div>
 									 					</div>
 							 						</div>
@@ -39,7 +41,31 @@ function showCart(){
         }
 
         document.getElementById("cartProduct").innerHTML = htmlContentToAppend;
+
     }
+
+	function showTotal(){
+
+		let htmlContentToAppend = "";
+
+    	for(let i = 0; i < carritoArray.articles.length; i++){
+        	let carrito2 = carritoArray.articles[i];
+
+			let precioCompra = parseInt(carrito2.unitCost) * (document.getElementById("quantity").value);
+
+        	htmlContentToAppend +=   `
+
+			<h3>Sumario</h3>
+                    <div class="summary-item"><span class="text">Subtotal</span><span class="price">` + precioCompra + `</span></div>
+                    <div class="summary-item"><span class="text">Envío</span><span class="price">$0</span></div>
+                    <div class="summary-item"><span class="text">Total</span><span class="price">` + precioCompra + `</span></div>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Pagar</button>
+
+					`
+		}
+
+		document.getElementById("cuentas").innerHTML = htmlContentToAppend;
+	}
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
@@ -53,6 +79,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         
             showCart();
+			showTotal();
         }
     });
 
