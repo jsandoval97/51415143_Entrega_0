@@ -11,26 +11,12 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<link rel="stylesheet" href="css/cart.css">
 </head>
 
 <body>
@@ -51,14 +37,36 @@
       </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+  <main class="page">
+    <section class="shopping-cart dark">
+        <div class="container">
+          <div class="block-heading">
+           <h2>Carrito</h2>
+           <p>Bienvenid@ <span id="nombreUsuario"></span>, aquí podrás visualizar tu compra</p>
+          </div>
+            <div class="content">
+              <div class="row">
+                <div class="col-md-12 col-lg-8">
+                  <div class="items">
+                    <div class="product" id="cartProduct">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-4">
+                  <div class="summary">
+                    <h3>Sumario</h3>
+                    <div class="summary-item"><span class="text">Subtotal</span><span class="price">$360</span></div>
+                    <div class="summary-item"><span class="text">Envío</span><span class="price">$0</span></div>
+                    <div class="summary-item"><span class="text">Total</span><span class="price">$360</span></div>
+                    <button type="button" class="btn btn-primary btn-lg btn-block">Pagar</button>
+                  </div>
+                </div>
+              </div> 
+            </div>
+        </div>
+    </section>
+  </main>
+  
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -69,6 +77,8 @@
   </div>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
