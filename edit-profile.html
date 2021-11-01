@@ -14,6 +14,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/my-profile.js"></script>
 </head>
 <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -40,74 +41,46 @@
           <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="text-center">
               <img src="img/blank_profile.png" class="avatar img-circle img-thumbnail" alt="avatar">
-              <h6>Upload a different photo...</h6>
+              <h6>Elegir una foto diferente...</h6>
               <input type="file" class="text-center center-block well well-sm">
             </div>
           </div>
           <!-- edit form column -->
           <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
-            <div class="alert alert-info alert-dismissable">
-              <a class="panel-close close" data-dismiss="alert">×</a> 
-              <i class="fa fa-coffee"></i>
-              This is an <strong>.alert</strong>. Use this to show important messages to the user.
-            </div>
             <h3>Información personal</h3>
             <form class="form-horizontal" role="form">
               <div class="form-group">
                 <label class="col-lg-3 control-label">Nombre:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" value="Julia" type="text">
+                  <input class="form-control" placeholder="Juan" type="text" id="nombreUsuario">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-lg-3 control-label">Apellido:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" value="Sandoval" type="text">
+                  <input class="form-control" placeholder="Perez" type="text" id="apellidoUsuario">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Company:</label>
+                <label class="col-lg-3 control-label">E-mail:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" value="http://tuconsultoraseo.com" type="text">
+                  <input class="form-control" placeholder="ejemplo@tumail.com" type="text" id="mailUsuario">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Email:</label>
+                <label class="col-lg-3 control-label">Teléfono:</label>
                 <div class="col-lg-8">
-                  <input class="form-control" value="carmenestelasi@gmail.com" type="text">
+                  <input class="form-control" placeholder="09X XXX XXX" type="text" id="telefonoUsuario">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-lg-3 control-label">Time Zone:</label>
-                <div class="col-lg-8">
-                  <div class="ui-select">
-                    <select id="user_time_zone" class="form-control">
-                      <option value="Hawaii">(GMT-10:00) Hawaii</option>
-                      <option value="Alaska">(GMT-09:00) Alaska</option>
-                      <option value="Pacific Time (US & Canada)">(GMT-08:00) Pacific Time (US & Canada)</option>
-                      <option value="Arizona">(GMT-07:00) Arizona</option>
-                      <option value="Mountain Time (US & Canada)">(GMT-07:00) Mountain Time (US & Canada)</option>
-                      <option value="Central Time (US & Canada)" selected="selected">(GMT-06:00) Central Time (US & Canada)</option>
-                      <option value="Eastern Time (US & Canada)">(GMT-05:00) Eastern Time (US & Canada)</option>
-                      <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label">Username:</label>
+                <label class="col-md-3 control-label">Contraseña:</label>
                 <div class="col-md-8">
-                  <input class="form-control" value="janeuser" type="text">
+                  <input class="form-control" value="11111122333" type="password" id="contraUsuario">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-md-3 control-label">Password:</label>
-                <div class="col-md-8">
-                  <input class="form-control" value="11111122333" type="password">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-md-3 control-label">Confirm password:</label>
+                <label class="col-md-3 control-label">Confirmar contraseña:</label>
                 <div class="col-md-8">
                   <input class="form-control" value="11111122333" type="password">
                 </div>
@@ -115,9 +88,9 @@
               <div class="form-group">
                 <label class="col-md-3 control-label"></label>
                 <div class="col-md-8">
-                  <input class="btn btn-primary" value="Save Changes" type="button">
+                  <input class="btn btn-primary" value="Guardar" type="button" onclick="validarDatos();">
                   <span></span>
-                  <input class="btn btn-default" value="Cancel" type="reset">
+                  <input class="btn btn-default" value="Cancelar" type="reset">
                 </div>
               </div>
             </form>
