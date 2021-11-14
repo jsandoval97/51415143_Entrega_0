@@ -1,4 +1,5 @@
 var carritoArray = [];
+var selectEnvio = [];
 
 function showCart(){
 
@@ -47,6 +48,8 @@ function showCart(){
 			productDiv.getElementsByClassName("price") [0].innerHTML = `<span> ${carrito.currency} </span><span> ${carrito.unitCost * e.target.value } </span>`
 
 			showTotal();
+			metodoEnvioSelection()
+
 		})
 		
 		document.getElementById("cartProduct").appendChild(productDiv);
@@ -62,18 +65,21 @@ function showCart(){
 	 	let htmlContentToAppend = "";
 
      	for(let i = 0; i < carritoArray.articles.length; i++){
+
+
          	let product = carritoArray.articles[i];
 	 		let cantProduct = document.getElementById("quantity");
-	
-	 		let precioCompra = product.unitCost * cantProduct.value;
-
+			let precioEnvio = selectEnvio
+	 		let precioCompra = product.unitCost * cantProduct.value; 
+			let precioTotal = precioCompra + parseInt(precioEnvio);
+			
         	htmlContentToAppend +=   `
 
 	 		<h3>Sumario</h3>
                      <div class="summary-item"><span class="text">Subtotal</span><span type="number" class="price">${precioCompra}</span></div>
-                     <div class="summary-item"><span class="text">Envío</span><span class="price">$0</span></div>
-                     <div class="summary-item"><span class="text">Total</span><span class="price">${precioCompra}</span></div>
-                     <button type="button" class="btn btn-primary btn-lg btn-block">Pagar</button>
+                     <div class="summary-item"><span class="text">Envío</span><span class="price">${precioEnvio}</span></div>
+                     <div class="summary-item"><span class="text">Total</span><span class="price">${precioTotal}</span></div>
+                     <button type="button" class="btn btn-primary btn-lg btn-block" onclick="validar();">Ir a pagar</button>
 
 	 				`
 	}
@@ -82,6 +88,52 @@ function showCart(){
 
 }
 
+function guardarPago() {
+
+	let pulsado = document.metodoPago;
+	for (i=0; i<pulsado.length; i++) {
+        valor = pulsado[i].checked;
+              if (valor == true) {
+                 elegido = pulsado[i].value;
+                 }
+              }
+
+		document.getElementById("formaPago").innerHTML = elegido;
+
+	}
+
+	function validar(){
+
+		let calle = document.getElementById('calle');
+		let numero = document.getElementById('numero');
+		let esquina = document.getElementById('esquina');
+		let pais = document.getElementById('pais');
+		
+		if ((calle.value === '') || (numero.value === '') || (esquina.value === '') || (pais.value === '')){
+			alert("Debe completar todos los datos")
+		}
+
+		else{
+
+			location.href="index.html"
+
+		}
+	
+	}
+	
+	function metodoEnvioSelection(){
+		let pulsado = document.metodoEnvio;
+				for (i=0; i<pulsado.length; i++) {
+        			valor = pulsado[i].checked;
+              			if (valor == true) {
+                	 		elegido = pulsado[i].value;
+                 			}
+              			}
+
+					selectEnvio = elegido
+
+			}
+	
 	// function actualizarCarritoArray(num){
 
 	// 	let carritoArrayNew = carritoArray

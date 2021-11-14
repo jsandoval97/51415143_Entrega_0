@@ -1,93 +1,241 @@
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
 <html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <title>eMercado - Todo lo que busques está aquí</title>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/4.3/examples/album/"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
+      rel="stylesheet"
+    />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/dropzone.css" rel="stylesheet" />
+    <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/cart.css" />
+  </head>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <link href="css/dropzone.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-	<link rel="stylesheet" href="css/cart.css">
-</head>
-
-<body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="cart.html"> Mi carrito</a>
-          <a class="dropdown-item" href="my-profile.html"> Mi perfil</a>
-          <a class="dropdown-item" href="login.html" id="cerrar" onclick="localStorage.clear();"> Cerrar Sesión</a>
+  <body>
+    <nav class="site-header sticky-top py-1 bg-dark">
+      <div
+        class="container d-flex flex-column flex-md-row justify-content-between"
+      >
+        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html"
+          >Categorías</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="products.html"
+          >Productos</a
+        >
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          ></button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="cart.html"> Mi carrito</a>
+            <a class="dropdown-item" href="my-profile.html"> Mi perfil</a>
+            <a
+              class="dropdown-item"
+              href="login.html"
+              id="cerrar"
+              onclick="localStorage.clear();"
+            >
+              Cerrar Sesión</a
+            >
+          </div>
         </div>
       </div>
-    </div>
-  </nav>
-  <main class="page">
-    <section class="shopping-cart dark">
+    </nav>
+    <main class="page">
+      <section class="shopping-cart dark">
         <div class="container">
           <div class="block-heading">
-           <h2>Carrito</h2>
-           <p>Bienvenid@ <span id="nombreUsuario"></span>, aquí podrás visualizar tu compra</p>
+            <h2>Carrito</h2>
+            <p>
+              Bienvenid@ <span id="nombreUsuario"></span>, aquí podrás
+              visualizar tu compra
+            </p>
           </div>
-            <div class="content">
-              <div class="row">
-                <div class="col-md-12 col-lg-8">
-                  <div class="items">
-                    <div class="product" id="cartProduct">
-                    </div>
-                  </div>
-                  <div>
+          <div class="content">
+            <div class="row">
+              <div class="col-md-12 col-lg-8">
+                <div class="items">
+                  <div class="product" id="cartProduct"></div>
+                </div>
+                <div>
+                    <h5 class="block-heading">Dirección de envío</h5>
+        
+                    <label>Calle </label>
+                    <input type="text" name="mail" class="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 mt-2 text-sm" placeholder="Ingresa la calle*" id="calle"> 
+                    <label>Número </label>
+                    <input type="text" name="mail" class="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 mt-2 text-sm" placeholder="1234*" id="numero"><br>
+                    <label>Esquina </label>
+                    <input type="text" name="mail" class="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 mt-2 text-sm" placeholder="Ingresa la esquina*" id="esquina"> <br>
+                    <label>País </label> 
+                    <input type="text" name="mail" class="border rounded h-10 w-full focus:outline-none focus:border-green-200 px-2 mt-2 text-sm" placeholder="País*" id="pais"> 
+                    
                     <h5 class="block-heading">Seleccione el tipo de envío</h5>
                     <div class="row">
                       <div class="col-md-12 col-lg-8">
-                        <form > 
-                          <input type="radio" name="envio" value="1" checked><label> - Envío Standard</label> <br>
-                          <input type="radio" name="envio" value="2"><label> - Envío Premium</label>
-                        </form>
+                          <form name="metodoEnvio"> 
+                            <label><input type="radio" name="envio" value="30" > Premium (2-5 días) - Costo del 15% sobre el subtotal</label> <br>
+                            <label><input type="radio" name="envio" value="14" > Express (5-8 días) - Costo del 7% sobre el subtotal</label> <br>
+                            <label><input type="radio" name="envio" value="10" > Standard (12 a 15 días) - Costo del 5% sobre el subtotal</label>
+                          </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <!-- Button trigger modal -->
+                    <h5 class="block-heading">Forma de pago</h5>
+                    <p><span id="formaPago">No ha seleccionado ninguna forma de pago</span></p>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">Seleccione forma de pago</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Seleccionar forma de pago</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form name="metodoPago"> 
+                              <label><input type="radio" name="pago" value="Tarjeta de crédito"> Tarjeta de crédito</label> <br>
+                              <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name">Nombre completo</label>
+                                            <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="ccnumber">Número de tarjeta</label>
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" placeholder="0000 0000 0000 0000" autocomplete="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-4">
+                                        <label for="ccmonth">Mes</label>
+                                        <select class="form-control" id="ccmonth">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                            <option>11</option>
+                                            <option>12</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-4">
+                                        <label for="ccyear">Año</label>
+                                        <select class="form-control" id="ccyear">
+                                            <option>2021</option>
+                                            <option>2022</option>
+                                            <option>2023</option>
+                                            <option>2024</option>
+                                            <option>2025</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <label for="cvv">CVV/CVC</label>
+                                            <input class="form-control" id="cvv" type="text" placeholder="123">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                              <label><input type="radio" name="pago" value="Transferencia bancaria"> Tansferencia bancaria</label> <br>
+                              <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="name">Nombre completo</label>
+                                            <input class="form-control" id="name" type="text" placeholder="Ingresa tu nombre">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label for="ccnumber">Número de cuenta</label>
+                                            <div class="input-group">
+                                                <input class="form-control" type="text" placeholder="0000 0000 0000 0000" autocomplete="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-primary" onclick="guardarPago()">Guardar cambios</button>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-12 col-lg-4">
-                  <div class="summary" id="cuentas">
-                  </div>
+                    <div class="summary" id="cuentas"></div>
+                    </div>
                 </div>
-              </div> 
-            </div>
-        </div>
-    </section>
-  </main>
-  
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <script src="js/bootstrap.bundle.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <script src="js/dropzone.js"></script>
-  <script src="js/init.js"></script>
-  <script src="js/cart.js"></script>
-</body>
+              </div>
+          </div>
+        </section>
+    </main>
 
+    <div id="spinner-wrapper">
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/dropzone.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
 </html>
